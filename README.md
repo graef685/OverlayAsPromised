@@ -27,7 +27,7 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
   selector: string     -> Overlay Selector i.e.: .overlay
   permanent: bool      -> shows overlay permanently until close
   closable: bool       -> overlay is closable by button or extern layer click
-  startingDelay: int   -> overlay will be opened after this ime of miliseconds
+  startingDelay: int   -> overlay will be opened after this amount of miliseconds
   minDidsplayTime: int -> overlay will be at least visible for this amount of miliseconds,
   maxDisplayTime: int  -> overlay will be maximal be visible fot this amount of miliseconds,
   onOpen: function     -> will be called on open
