@@ -15,14 +15,9 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
 * Open your browser at ```loacalhost:1234 ```
 * You will se a cactus 
 
-### Usage
-
-* inlucde ```overlay-as-promised.min.js``` into your Project
-
-
- * create config:
-
+### API
 ```
+config: 
 {
   selector: string     -> Overlay Selector i.e.: .overlay
   permanent: bool      -> shows overlay permanently until close
@@ -33,10 +28,18 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
   onOpen: function     -> will be called on open
   onClose: function    -> will be called on close
 }
+```
+```
+Overlay.create(config) -> overlay
 
+overlay.open()  -> Promise
+overlay.close() -> Promise
 ```
 
-* run:
+### Usage
+
+* inlucde ```overlay-as-promised.min.js``` into your Project
+
 ``` 
 var overlay = OverlayAsPromised.create(config) 
 overlay.open();
