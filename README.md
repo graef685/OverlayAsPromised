@@ -13,7 +13,7 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
 
 * ``` node server.js ```
 * Open your browser at ```loacalhost:1234 ```
-* You will se a cactus 
+* You will see a cactus 
 
 ### API
 ```
