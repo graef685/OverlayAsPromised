@@ -72,18 +72,3 @@ var OverlayAsPromised = {
         }
     }
 }
-
-// $(document).ready(function() {
-//     var overlay = OverlayAsPromised.create({
-//         selector: '.test',
-//         permanent: false,
-//         minDisplayTime: 2000,
-//         maxDisplayTime: 4000,
-//         closable: false,
-//         onOpen: function() {
-//
-//         }.bind(this)
-//     });
-//
-//     overlay.open();
-// });
