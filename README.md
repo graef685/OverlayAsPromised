@@ -44,3 +44,7 @@ overlay.close() -> Promise
 var overlay = OverlayAsPromised.create(config) 
 overlay.open();
 ```
+
+### Contributors
+
+* Patrick Gräf - graef685@googlemail.com
