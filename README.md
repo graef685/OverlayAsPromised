@@ -23,7 +23,7 @@ config:
   permanent:       bool     -> default: true           -> shows overlay permanently until close
   closable:        bool     -> default: true           -> overlay will be closable by button or extern layer click
   startingDelay:   int      -> default: 0              -> overlay will be opened after this amount of miliseconds
-  minDidsplayTime: int      -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
+  minDissplayTime: int      -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
   maxDisplayTime:  int      -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds,
   onOpen:          function -> default: empty function -> will be called on open
   onClose:         function -> default: empty function -> will be called on close
