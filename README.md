@@ -19,7 +19,7 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
 ```
 config: 
 {
-  selector:        string   -> default: ''             -> Overlay Selector i.e.: .overlay
+  selector:        string   -> default: ''             -> Css Overlay Selector i.e.: .overlay
   permanent:       bool     -> default: true           -> shows overlay permanently until close
   closable:        bool     -> default: true           -> overlay will be closable by button or extern layer click
   startingDelay:   int      -> default: 0              -> overlay will be opened after this amount of miliseconds
