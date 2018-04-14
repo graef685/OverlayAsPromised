@@ -17,7 +17,7 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
 
 ### Usage
 
-* inlucde OverlayAsPromised.min.js into your Project
+* inlucde overlay-as-promised.min.js into your Project
 
 
  * create config:
