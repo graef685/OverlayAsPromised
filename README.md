@@ -21,7 +21,7 @@ config:
 {
   selector: string     -> Overlay Selector i.e.: .overlay
   permanent: bool      -> shows overlay permanently until close
-  closable: bool       -> overlay is closable by button or extern layer click
+  closable: bool       -> overlay will be closable by button or extern layer click
   startingDelay: int   -> overlay will be opened after this amount of miliseconds
   minDidsplayTime: int -> overlay will be at least visible for this amount of miliseconds,
   maxDisplayTime: int  -> overlay will be maximal be visible fot this amount of miliseconds,
