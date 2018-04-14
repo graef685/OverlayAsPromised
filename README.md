@@ -24,7 +24,7 @@ config:
   closable: bool       -> overlay will be closable by button or extern layer click
   startingDelay: int   -> overlay will be opened after this amount of miliseconds
   minDidsplayTime: int -> overlay will be at least visible for this amount of miliseconds,
-  maxDisplayTime: int  -> overlay will be maximal be visible fot this amount of miliseconds,
+  maxDisplayTime: int  -> overlay will be maximal be visible for this amount of miliseconds,
   onOpen: function     -> will be called on open
   onClose: function    -> will be called on close
 }
