@@ -1,0 +1,22 @@
+{
+  "name": "overlayAsPromised",
+  "version": "0.1.0",
+  "description": "overlayAsPromised",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graef685/OverlayAsPromised.git"
+  },
+  "author": "Patrick Gräf",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/graef685/OverlayAsPromised/issues"
+  },
+  "devDependencies": {
+  },
+  "homepage": "https://github.com/graef685/OverlayAsPromised",
+  "dependencies": {}
+}
