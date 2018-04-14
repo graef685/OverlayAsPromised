@@ -32,7 +32,6 @@ If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQu
   maxDisplayTime: int  -> overlay will be maximal be visible fot this amount of miliseconds,
   onOpen: function     -> will be called on open
   onClose: function    -> will be called on close
-  
 }
 
 ```
