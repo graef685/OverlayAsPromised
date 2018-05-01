@@ -1,11 +1,11 @@
 # OverlayAsPromised
 
-### It's only a pre-release at now !!!
+### Release with Dependecies !!!
 If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQuery.colorbox are part of your Project.
 
 ### Install - Demo
 
-* Download the pre-release
+* Download
 * ``` npm install ``` 
 
 
