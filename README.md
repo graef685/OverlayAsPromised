@@ -51,3 +51,10 @@ overlay.open();
 ### Contributors
 
 * Patrick Gräf - graef685@googlemail.com
+
+### Usages
+
+OverlayAsPromised is in use in following Projects:
+
+*  https://shop.t-mobile.at/
+*  https://businessshop.t-mobile.at/
