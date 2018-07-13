@@ -16,7 +16,7 @@ You will get them here:
 
 * ``` node server.js ```
 * Open your browser at ```loacalhost:1234 ```
-* You will see a cactus 
+* Overlay will pop up and you will se a cactus
 
 ### API
 ```
