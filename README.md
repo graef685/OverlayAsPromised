@@ -1,4 +1,4 @@
-# OverlayAsPromised
+# OverlayAsPromised - jQuery Plugin
 
 ### Release with Dependecies !!!
 If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQuery.colorbox are part of your Project.  
@@ -45,7 +45,7 @@ overlay.close() -> Promise
 * inlucde ```overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $.OverlayAsPromised.(config) 
+var overlay = $.overlayAsPromised.(config) 
 overlay.open();
 ```
 
