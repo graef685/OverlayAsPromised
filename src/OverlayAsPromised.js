@@ -1,84 +1,86 @@
-var OverlayAsPromised = {
-    config: {
-        selector:       '',
-        permanent:      true,
-        closable:       true,
-        startingDelay:  0,
-        minDisplayTime: 0,
-        maxDisplayTime: 0
-    },
+(function ( $ ) {
+    $.overlayAsPromised = function(config, onOpen, onClose) {
+        var plugin = this;
 
-    create: function(config, onOpen, onClose) {
-        this.init(config, onOpen, onClose);
+        plugin.config = {
+            selector:       '',
+            permanent:      true,
+            closable:       true,
+            startingDelay:  0,
+            minDisplayTime: 0,
+            maxDisplayTime: 0
+        };
 
-        return Object.create(this.overlay);
-    },
+        plugin.init = function(init, onOpen, onClose) {
+            plugin.config.selector       = init.selector != null ? init.selector : plugin.config.selector;
+            plugin.config.permanent      = init.permanent != null ? init.permanent : plugin.config.permanent;
+            plugin.config.closable       = init.closable != null ? init.closable : plugin.config.closable;
+            plugin.config.startingDelay  = init.startingDelay != null ? init.startingDelay : plugin.config.startingDelay;
+            plugin.config.minDisplayTime = init.minDisplayTime != null ? init.minDisplayTime : plugin.config.minDisplayTime;
+            plugin.config.maxDisplayTime = init.maxDisplayTime != null ? init.maxDisplayTime : plugin.config.maxDisplayTime;
+            plugin.overlay.onOpen        = onOpen != null ? onOpen : plugin.overlay.onOpen;
+            plugin.overlay.onClose       = onClose != null ? onClose : plugin.overlay.onClose;
+        };
 
-    init: function(config, onOpen, onClose) {
-        this.config.selector       = config.selector != null ? config.selector : this.config.selector;
-        this.config.permanent      = config.permanent != null ? config.permanent : this.config.permanent;
-        this.config.closable       = config.closable != null ? config.closable : this.config.closable;
-        this.config.startingDelay  = config.startingDelay != null ? config.startingDelay : this.config.startingDelay;
-        this.config.minDisplayTime = config.minDisplayTime != null ? config.minDisplayTime : this.config.minDisplayTime;
-        this.config.maxDisplayTime = config.maxDisplayTime != null ? config.maxDisplayTime : this.config.maxDisplayTime;
-        this.overlay.onOpen        = onOpen != null ? onOpen : this.overlay.onOpen;
-        this.overlay.onClose       = onClose != null ? onClose : this.overlay.onClose;
-    },
-
-    overlay: {
-        open: function() {
-            var start = Date.now();
-
-            setTimeout(function() {
-                $.colorbox({
-                    inline:       true,
-                    href:         $(OverlayAsPromised.config.selector),
-                    initialWidth: 320,
-                    open:         true,
-                    content:      $(OverlayAsPromised.config.selector).html(),
-                    closeButton:  OverlayAsPromised.config.closable,
-                    overlayClose: OverlayAsPromised.config.closable,
-                    escKey:		  OverlayAsPromised.config.closable,
-                    fixed:        true,
-                    onOpen:       function () {
-                        return $(OverlayAsPromised.config.selector).show();
-                    },
-                    onClose: function () {
-                        return $(OverlayAsPromised.config.selector).hide();
-                    }
-                });
+        plugin.overlay = {
+            open: function() {
+                var start = Date.now();
 
                 setTimeout(function() {
-                    OverlayAsPromised.overlay.onOpen();
-                }, OverlayAsPromised.config.startingDelay + OverlayAsPromised.config.minDisplayTime);
-
-                if(OverlayAsPromised.config.maxDisplayTime > 0 && OverlayAsPromised.config.permanent === false) {
-                    setInterval(function() {
-                        if(start +
-                            OverlayAsPromised.config.startingDelay +
-                            OverlayAsPromised.config.maxDisplayTime < Date.now()) {
-                                return OverlayAsPromised.overlay.close();
+                    $.colorbox({
+                        inline:       true,
+                        href:         $(plugin.config.selector),
+                        initialWidth: 320,
+                        open:         true,
+                        content:      $(plugin.config.selector).html(),
+                        closeButton:  plugin.config.closable,
+                        overlayClose: plugin.config.closable,
+                        escKey:		  plugin.config.closable,
+                        fixed:        true,
+                        onOpen:       function () {
+                            return $(plugin.config.selector).show();
+                        },
+                        onClose: function () {
+                            return $(plugin.config.selector).hide();
                         }
-                    }, 50);
-                }
-            }, OverlayAsPromised.config.startingDelay);
+                    });
 
-            return $.when();
-        },
+                    setTimeout(function() {
+                        plugin.overlay.onOpen();
+                    }, plugin.config.startingDelay + plugin.config.minDisplayTime);
 
-        close: function() {
-            $.colorbox.close();
-            OverlayAsPromised.overlay.onClose();
+                    if(plugin.config.maxDisplayTime > 0 && plugin.config.permanent === false) {
+                        setInterval(function() {
+                            if(start +
+                                plugin.config.startingDelay +
+                                plugin.config.maxDisplayTime < Date.now()) {
+                                    return plugin.overlay.close();
+                            }
+                        }, 50);
+                    }
+                }, plugin.config.startingDelay);
 
-            return $.when();
-        },
+                return $.when();
+            },
 
-        onOpen: function() {
+            close: function() {
+                $.colorbox.close();
+                plugin.overlay.onClose();
 
-        },
+                return $.when();
+            },
 
-        onClose: function() {
+            onOpen: function() {
 
-        }
-    }
-};
+            },
+
+            onClose: function() {
+
+            }
+        };
+
+        plugin.init(config, onOpen, onClose);
+
+        return Object.create(plugin.overlay);
+    };
+}( jQuery ));
