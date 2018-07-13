@@ -9,3 +9,4 @@ app.get('/', function(req, res) {
 });
 
 app.listen(1234);
+console.log('App listening on port 1234 ....')
