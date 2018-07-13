@@ -30,8 +30,8 @@ config:
   maxDisplayTime:  int      -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds
 }
 
-onOpen: function -> default: empty function -> will be called on open
-onClose: function -> default: empty function -> will be called on close
+onOpen:            function -> default: empty function -> will be called on open
+onClose:           function -> default: empty function -> will be called on close
 ```
 ```
 Overlay.create(config) -> overlay
@@ -45,7 +45,7 @@ overlay.close() -> Promise
 * inlucde ```overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $.overlayAsPromised(config);
+var overlay = $.overlayAsPromised(config, onOpen, onClose);
 overlay.open();
 ```
 
