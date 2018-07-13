@@ -34,8 +34,6 @@ onOpen:            function -> default: empty function -> will be called on open
 onClose:           function -> default: empty function -> will be called on close
 ```
 ```
-Overlay.create(config) -> overlay
-
 overlay.open()  -> Promise
 overlay.close() -> Promise
 ```
