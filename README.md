@@ -45,7 +45,7 @@ overlay.close() -> Promise
 * inlucde ```overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $.overlayAsPromised.(config) 
+var overlay = $.overlayAsPromised(config);
 overlay.open();
 ```
 
