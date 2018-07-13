@@ -1,4 +1,4 @@
-# OverlayAsPromised
+# OverlayAsPromised - jQuery Plugin
 
 ### Release with Dependecies !!!
 If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQuery.colorbox are part of your Project.  
@@ -27,14 +27,13 @@ config:
   closable:        bool     -> default: true           -> overlay will be closable by button or extern layer click
   startingDelay:   int      -> default: 0              -> overlay will be opened after this amount of miliseconds
   minDisplayTime:  int      -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
-  maxDisplayTime:  int      -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds,
-  onOpen:          function -> default: empty function -> will be called on open
-  onClose:         function -> default: empty function -> will be called on close
+  maxDisplayTime:  int      -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds
 }
-```
-```
-Overlay.create(config) -> overlay
 
+onOpen:            function -> default: empty function -> will be called on open
+onClose:           function -> default: empty function -> will be called on close
+```
+```
 overlay.open()  -> Promise
 overlay.close() -> Promise
 ```
@@ -44,7 +43,7 @@ overlay.close() -> Promise
 * inlucde ```overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = OverlayAsPromised.create(config) 
+var overlay = $.overlayAsPromised(config, onOpen, onClose);
 overlay.open();
 ```
 
