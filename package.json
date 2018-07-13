@@ -16,6 +16,7 @@
     "url": "https://github.com/graef685/OverlayAsPromised/issues"
   },
   "devDependencies": {
+    "express": "^4.16.3"
   },
   "homepage": "https://github.com/graef685/OverlayAsPromised",
   "dependencies": {}
