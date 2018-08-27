@@ -40,7 +40,8 @@
                         onOpen:       function () {
                             return $(plugin.config.selector).show();
                         },
-                        onClose: function () {
+                        onClosed: function () {
+                            plugin.overlay.onClose();
                             return $(plugin.config.selector).hide();
                         }
                     });
