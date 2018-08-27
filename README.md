@@ -47,6 +47,19 @@ var overlay = $.overlayAsPromised(config, onOpen, onClose);
 overlay.open();
 ```
 
+### Customize
+
+To customize the close-Button simply overwrite the styles of the element with id ``` cboxClose ``` e.g. in your stylesheet:
+
+```c2hs
+#cboxClose {
+  position: absolute:
+  top: -10px;
+  left: 180px;
+  border: 1px solid #ff0000;
+}
+```
+
 ### Contributors
 
 * Patrick Gräf - graef685@googlemail.com
