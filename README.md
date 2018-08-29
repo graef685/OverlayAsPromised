@@ -53,12 +53,25 @@ To customize the close-Button simply overwrite the styles of the element with id
 
 ```c2hs
 #cboxClose {
-  position: absolute:
-  top: -10px;
-  left: 180px;
-  border: 1px solid #ff0000;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #000;
+  border: none;
+  background-color: $fff;
+  font-size: 0;
+  padding-top: 10px;
+}
+
+#cboxClose::before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e014";
+  font-size: 17px;
 }
 ```
+
+This would result in a black X on white ground (Glyphicons muste be included as font-family).
 
 ### Contributors
 
