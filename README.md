@@ -55,13 +55,11 @@ To customize the close-Button simply overwrite the styles of the element with id
 #cboxClose {
   display: inline-block;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -30px;
+  right: -30px;
   color: #000;
   border: none;
-  background-color: $fff;
-  font-size: 0;
-  padding-top: 10px;
+  background-color: #fff;
 }
 
 #cboxClose::before {
