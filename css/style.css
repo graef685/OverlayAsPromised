@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url(../static/glyphicons-halflings-regular.eot);
+    src: url(../static/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(../static/glyphicons-halflings-regular.woff2) format("woff2"), url(../static/glyphicons-halflings-regular.woff) format("woff"), url(../static/glyphicons-halflings-regular.ttf) format("truetype"), url(../static/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+
+}
+
+#cboxClose {
+    display: inline-block;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    color: #000;
+    border: none;
+    background-color: #fff;
+    font-size: 0;
+}
+
+#cboxClose::before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e014";
+    font-size: 17px;
+}
