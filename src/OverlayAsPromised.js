@@ -24,7 +24,8 @@
 
         plugin.overlay = {
             open: function() {
-                var start = Date.now();
+                var start    = Date.now();
+                var deferred = $.Deferred();
 
                 setTimeout(function() {
                     $.colorbox({
@@ -47,7 +48,10 @@
                     });
 
                     setTimeout(function() {
-                        plugin.overlay.onOpen();
+                        $.when(plugin.overlay.onOpen()).then(function(result) {
+                            deferred.resolve(result);
+                        });
+
                     }, plugin.config.startingDelay + plugin.config.minDisplayTime);
 
                     if(plugin.config.maxDisplayTime > 0 && plugin.config.permanent === false) {
@@ -61,14 +65,19 @@
                     }
                 }, plugin.config.startingDelay);
 
-                return $.when();
+                return deferred.promise();
             },
 
             close: function() {
-                $.colorbox.close();
-                plugin.overlay.onClose();
+                var deferred = $.Deferred();
 
-                return $.when();
+                $.colorbox.close();
+
+                $.when(plugin.overlay.onClose()).then(function(result) {
+                    deferred.resolve(result);
+                });
+
+                return deferred.promise();
             },
 
             onOpen: function() {

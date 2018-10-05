@@ -4,8 +4,10 @@ $(document).ready(function() {
         permanent: true,
         closable: true
     }, function() {
-        console.log("it's working");
+        return "it's working";
     });
 
-    overlay.open();
+    overlay.open().then(function(value) {
+        console.log(value);
+    });
 });
