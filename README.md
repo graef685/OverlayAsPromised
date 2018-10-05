@@ -1,6 +1,6 @@
 # OverlayAsPromised - jQuery Plugin
 
-### Release with Dependecies !!!
+### Release with Dependencies !!!
 If you include the ```overlay-as-promised.min.js``` only, be sure jQuery and JQuery.colorbox are part of your Project.  
 You will get them here:  
 *  http://jquery.com/download/ 
