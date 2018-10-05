@@ -50,7 +50,7 @@ overlay.close() -> Promise with resolved return value from onClose
 
 ### Usage
 
-* inlucde ```overlay-as-promised.min.js``` into your Project
+* Include ```overlay-as-promised.min.js``` into your Project
 
 ``` 
 var overlay = $.overlayAsPromised(config, onOpen, onClose);
