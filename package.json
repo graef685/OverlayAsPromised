@@ -1,7 +1,8 @@
 {
-  "name": "overlayAsPromised",
-  "version": "0.1.0",
-  "description": "overlayAsPromised",
+  "name": "overlay-as-promised",
+  "title": "jQuery OverlayAsPromised",
+  "version": "0.3.0",
+  "description": "Overlay full configurable returning promises on events",
   "main": "index.js",
   "scripts": {
     "preinstall": ""
@@ -12,6 +13,7 @@
   },
   "author": "Patrick Gräf",
   "license": "GPL",
+  "docs": "https://github.com/graef685/OverlayAsPromised",
   "bugs": {
     "url": "https://github.com/graef685/OverlayAsPromised/issues"
   },
