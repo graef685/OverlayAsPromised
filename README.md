@@ -22,7 +22,6 @@ You will get them here:
 ```
 config: 
 {
-  selector:        string                  -> default: ''        -> Css Overlay Selector i.e.: .overlay
   closable:        bool                    -> default: true      -> overlay will be closable by button or extern layer click
   startingDelay:   int                     -> default: 0         -> overlay will be opened after this amount of miliseconds
   minDisplayTime:  int                     -> default: 0         -> overlay will be at least visible for this amount of miliseconds,
@@ -53,7 +52,7 @@ overlay.close() -> Promise with resolved return value from onClose
 * Include ```juqery.overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $.overlayAsPromised(config, onOpen, onClose);
+var overlay = $('.test').overlayAsPromised(config, onOpen, onClose);
 overlay.open();
 ```
 
