@@ -1,9 +1,11 @@
-(function ( $ ) {
-    $.overlayAsPromised = function(config, onOpen, onClose) {
-        var plugin = this;
+(function($) {
+    $.fn.overlayAsPromised = function(config, onOpen, onClose) {
+        var self   = this;
+        var plugin = {
+            config: {}
+        };
 
-        plugin.config = {
-            selector:       '',
+        var defaults = {
             closable:       true,
             startingDelay:  0,
             minDisplayTime: 0,
@@ -21,25 +23,10 @@
             speed:          350
         };
 
-        plugin.init = function(init, onOpen, onClose) {
-            plugin.config.selector       = init.selector != null ? init.selector : plugin.config.selector;
-            plugin.config.closable       = init.closable != null ? init.closable : plugin.config.closable;
-            plugin.config.startingDelay  = init.startingDelay != null ? init.startingDelay : plugin.config.startingDelay;
-            plugin.config.minDisplayTime = init.minDisplayTime != null ? init.minDisplayTime : plugin.config.minDisplayTime;
-            plugin.config.maxDisplayTime = init.maxDisplayTime != null ? init.maxDisplayTime : plugin.config.maxDisplayTime;
-            plugin.config.width          = init.width != null ? init.width : plugin.config.width;
-            plugin.config.height         = init.height != null ? init.height : plugin.config.height;
-            plugin.config.maxWidth       = init.maxWidth != null ? init.maxWidth : plugin.config.maxWidth;
-            plugin.config.maxHeight      = init.maxHeight != null ? init.maxHeight : plugin.config.maxHeight;
-            plugin.config.top            = init.top != null ? init.top : plugin.config.top;
-            plugin.config.bottom         = init.bottom != null ? init.bottom : plugin.config.bottom;
-            plugin.config.left           = init.left != null ? init.left : plugin.config.left;
-            plugin.config.right          = init.right != null ? init.right : plugin.config.right;
-            plugin.config.className      = init.className != null ? init.className : plugin.config.className;
-            plugin.config.transition     = init.transition != null ? init.transition : plugin.config.transition;
-            plugin.config.speed          = init.speed != null ? init.speed : plugin.config.speed;
-            plugin.overlay.onOpen        = onOpen != null ? onOpen : plugin.overlay.onOpen;
-            plugin.overlay.onClose       = onClose != null ? onClose : plugin.overlay.onClose;
+        plugin.init = function(config, onOpen, onClose) {
+            plugin.config          = $.extend(true, {}, defaults, config);
+            plugin.overlay.onOpen  = onOpen != null ? onOpen : plugin.overlay.onOpen;
+            plugin.overlay.onClose = onClose != null ? onClose : plugin.overlay.onClose;
         };
 
         plugin.overlay = {
@@ -50,13 +37,13 @@
                 setTimeout(function() {
                     $.colorbox({
                         inline:       true,
-                        href:         $(plugin.config.selector),
+                        href:         self,
                         initialWidth: 320,
                         open:         true,
-                        content:      $(plugin.config.selector).html(),
+                        content:      self.html(),
                         closeButton:  plugin.config.closable,
                         overlayClose: plugin.config.closable,
-                        escKey:		  plugin.config.closable,
+                        escKey:		    plugin.config.closable,
                         fixed:        true,
                         width:        plugin.config.width,
                         height:       plugin.config.height,
@@ -70,11 +57,11 @@
                         transition:   plugin.config.transition,
                         speed:        plugin.config.speed,
                         onOpen:       function () {
-                            return $(plugin.config.selector).show();
+                            return self.show();
                         },
                         onClosed: function () {
                             plugin.overlay.onClose();
-                            return $(plugin.config.selector).hide();
+                            return self.hide();
                         }
                     });
 
@@ -111,17 +98,12 @@
                 return deferred.promise();
             },
 
-            onOpen: function() {
-
-            },
-
-            onClose: function() {
-
-            }
+            onOpen:  function() {},
+            onClose: function() {}
         };
 
         plugin.init(config, onOpen, onClose);
 
         return Object.create(plugin.overlay);
     };
-}( jQuery ));
+}(jQuery));
