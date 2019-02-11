@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var overlay = $.overlayAsPromised({
-        selector: '.test',
+    var overlay = $('.test').overlayAsPromised({
         closable: true,
     }, function() {
         return "it's working";
