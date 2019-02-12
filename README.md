@@ -24,21 +24,21 @@ var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 ```
 ``` 
 config: {
-  closable:        bool                    -> default: true      -> overlay will be closable by button or extern layer click
-  startingDelay:   int                     -> default: 0         -> overlay will be opened after this amount of miliseconds
-  minDisplayTime:  int                     -> default: 0         -> overlay will be at least visible for this amount of miliseconds,
-  maxDisplayTime:  int                     -> default: 0         -> overlay will be maximal be visible for this amount of miliseconds
-  width:           int|string              -> default: false     -> overlay's fixed width
-  height:          int|string              -> default: false     -> overlay's fixed height
-  maxWidth:        int|string              -> default: false     -> overlay's max width
-  maxHeight:       int|string              -> default: false     -> overlay's max height
-  top:             int|string              -> default: false     -> overlay's distance to the top of the window
-  bottom:          int|string              -> default: false     -> overlay's distance to the bottom of the window
-  left:            int|string              -> default: false     -> overlay's distance to the left of the window
-  right:           int|string              -> default: false     -> overlay's distance to the right of the window
-  className:       string                  -> default: false     -> gives overlay a custom class
-  transition:      'elastic'|'fade'|'none' -> default: 'elastic' -> opening transition type
-  speed:           int                     -> default: 350       -> transition speed
+  closable:        bool                    -> default: true           -> overlay will be closable by button or extern layer click
+  startingDelay:   int                     -> default: 0              -> overlay will be opened after this amount of miliseconds
+  minDisplayTime:  int                     -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
+  maxDisplayTime:  int                     -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds
+  width:           int|string              -> default: false          -> overlay's fixed width
+  height:          int|string              -> default: false          -> overlay's fixed height
+  maxWidth:        int|string              -> default: false          -> overlay's max width
+  maxHeight:       int|string              -> default: false          -> overlay's max height
+  top:             int|string              -> default: false          -> overlay's distance to the top of the window
+  bottom:          int|string              -> default: false          -> overlay's distance to the bottom of the window
+  left:            int|string              -> default: false          -> overlay's distance to the left of the window
+  right:           int|string              -> default: false          -> overlay's distance to the right of the window
+  className:       string                  -> default: false          -> gives overlay a custom class
+  transition:      'elastic'|'fade'|'none' -> default: 'elastic'      -> opening transition type
+  speed:           int                     -> default: 350            -> transition speed
 }
 
 onOpen:            function                -> default: empty function -> will be called on open
