@@ -23,8 +23,7 @@ You will get them here:
 var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 ```
 ``` 
-config: 
-{
+config: {
   closable:        bool                    -> default: true      -> overlay will be closable by button or extern layer click
   startingDelay:   int                     -> default: 0         -> overlay will be opened after this amount of miliseconds
   minDisplayTime:  int                     -> default: 0         -> overlay will be at least visible for this amount of miliseconds,
