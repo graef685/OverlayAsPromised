@@ -52,8 +52,15 @@ overlay.close() -> Promise with resolved return value from onClose
 * Include ```juqery.overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $('.test').overlayAsPromised(config, onOpen, onClose);
-overlay.open();
+var overlay = $('.test').overlayAsPromised({
+    closable: true,
+}, function() {
+    return "it's working";
+});
+
+overlay.open().then(function(value) {
+    console.log(value);
+});
 ```
 
 ### Customize
