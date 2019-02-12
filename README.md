@@ -52,7 +52,7 @@ overlay.close() -> Promise with resolved return value from onClose
 
 ### Usage
 
-* Include ```juqery.overlay-as-promised.min.js``` into your Project
+* Include ```jquery.overlay-as-promised.min.js``` into your Project
 
 ``` 
 var overlay = $('.test').overlayAsPromised({
