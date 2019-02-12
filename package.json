@@ -1,7 +1,7 @@
 {
   "name": "overlay-as-promised",
   "title": "jQuery OverlayAsPromised",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "jQuery plugin: Full-configurable overlay returning promises on listening events",
   "keywords": ["overlay", "dialog", "lightbox", "layer", "colorbox", "promise", "jquery", "plugin"],
   "main": "index.js",
