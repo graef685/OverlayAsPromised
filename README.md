@@ -20,6 +20,9 @@ You will get them here:
 
 ### API
 ```
+var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
+```
+``` 
 config: 
 {
   closable:        bool                    -> default: true      -> overlay will be closable by button or extern layer click
