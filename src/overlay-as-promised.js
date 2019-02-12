@@ -4,7 +4,7 @@
         var plugin = {
             config: {}
         };
-
+        
         var defaults = {
             closable:       true,
             startingDelay:  0,
@@ -25,7 +25,7 @@
 
         plugin.init = function(config, onOpen, onClose) {
             plugin.config          = $.extend(true, {}, defaults, config);
-            plugin.overlay.onOpen  = onOpen != null ? onOpen : plugin.overlay.onOpen;
+            plugin.overlay.onOpen  = onOpen  != null ? onOpen  : plugin.overlay.onOpen;
             plugin.overlay.onClose = onClose != null ? onClose : plugin.overlay.onClose;
         };
 
