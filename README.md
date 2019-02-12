@@ -70,6 +70,7 @@ overlay.open().then(function(value) {
 
 ### Customize
 
+For the moment customizing means to override the ```jQuery.colorbox``` styles.
 To customize the close-Button simply overwrite the styles of the element with id ``` cboxClose ``` e.g. in your stylesheet:
 
 ```c2hs
