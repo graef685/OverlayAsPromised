@@ -1,7 +1,7 @@
 # OverlayAsPromised - jQuery Plugin
 
 ### Release with Dependencies !!!
-If you include the ```jquery.overlay-as-promised.min.js``` only, be sure jQuery and JQuery.colorbox are part of your Project.  
+If you include the ```jquery.overlay-as-promised.min.js``` only, be sure jQuery and jQuery.colorbox are part of your Project.  
 You will get them here:  
 *  http://jquery.com/download/ 
 *  http://www.jacklmoore.com/colorbox/
@@ -20,6 +20,9 @@ You will get them here:
 
 ### API
 ```
+var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
+```
+``` 
 config: 
 {
   closable:        bool                    -> default: true      -> overlay will be closable by button or extern layer click
@@ -52,12 +55,22 @@ overlay.close() -> Promise with resolved return value from onClose
 * Include ```juqery.overlay-as-promised.min.js``` into your Project
 
 ``` 
-var overlay = $('.test').overlayAsPromised(config, onOpen, onClose);
-overlay.open();
+var overlay = $('.test').overlayAsPromised({
+    closable: true,
+}, function() {
+    return "it's working";
+}, function() {
+    console.log("closed");
+});
+
+overlay.open().then(function(value) {
+    console.log(value);
+});
 ```
 
 ### Customize
 
+For the moment customizing means to override the ```jQuery.colorbox``` styles.  
 To customize the close-Button simply overwrite the styles of the element with id ``` cboxClose ``` e.g. in your stylesheet:
 
 ```c2hs
