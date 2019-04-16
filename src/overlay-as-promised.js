@@ -20,7 +20,8 @@
             right:          false,
             className:      false,
             transition:     'elastic',
-            speed:          350
+            speed:          350,
+            fixed:          false
         };
 
         plugin.init = function(config, onOpen, onClose) {
@@ -43,8 +44,8 @@
                         content:      self.html(),
                         closeButton:  plugin.config.closable,
                         overlayClose: plugin.config.closable,
-                        escKey:		    plugin.config.closable,
-                        fixed:        true,
+                        escKey:		  plugin.config.closable,
+                        fixed:        plugin.config.fixed,
                         width:        plugin.config.width,
                         height:       plugin.config.height,
                         maxWidth:     plugin.config.maxWidth,
