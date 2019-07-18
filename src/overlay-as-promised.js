@@ -1,7 +1,8 @@
 (function($) {
     $.fn.overlayAsPromised = function(config, onOpen, onClose) {
-        var self   = this;
-        var plugin = {
+        var self      = this;
+        var intervals = [];
+        var plugin    = {
             config: {}
         };
         
@@ -28,6 +29,12 @@
             plugin.config          = $.extend(true, {}, defaults, config);
             plugin.overlay.onOpen  = onOpen  != null ? onOpen  : plugin.overlay.onOpen;
             plugin.overlay.onClose = onClose != null ? onClose : plugin.overlay.onClose;
+        };
+
+        plugin.clearIntervals = function() {
+            intervals.forEach(function(interval) {
+                clearInterval(interval);
+            });
         };
 
         plugin.overlay = {
@@ -61,6 +68,7 @@
                             return self.show();
                         },
                         onClosed: function () {
+                            plugin.clearIntervals();
                             plugin.overlay.onClose();
                             return self.hide();
                         }
@@ -74,13 +82,13 @@
                     }, plugin.config.startingDelay + plugin.config.minDisplayTime);
 
                     if(plugin.config.maxDisplayTime > 0) {
-                        setInterval(function() {
+                        intervals.push(setInterval(function() {
                             if(start +
                                 plugin.config.startingDelay +
                                 plugin.config.maxDisplayTime < Date.now()) {
                                     return plugin.overlay.close();
                             }
-                        }, 50);
+                        }, 50));
                     }
                 }, plugin.config.startingDelay);
 
