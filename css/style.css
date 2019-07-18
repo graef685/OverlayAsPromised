@@ -8,8 +8,8 @@
 #cboxClose {
     display: inline-block;
     position: absolute;
-    top: -30px;
-    right: -30px;
+    top: 0px;
+    left: 0px;
     color: #000;
     border: none;
     background-color: #fff;

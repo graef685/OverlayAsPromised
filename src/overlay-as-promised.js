@@ -1,7 +1,9 @@
 (function($) {
     $.fn.overlayAsPromised = function(config, onOpen, onClose) {
-        var self   = this;
-        var plugin = {
+        var colorbox;
+        var self      = this;
+        var intervals = [];
+        var plugin    = {
             config: {}
         };
         
@@ -21,13 +23,40 @@
             className:      false,
             transition:     'elastic',
             speed:          350,
-            fixed:          false
+            fixed:          false,
+            fitScreen:      false,
+            autoResize:     false
         };
 
         plugin.init = function(config, onOpen, onClose) {
             plugin.config          = $.extend(true, {}, defaults, config);
             plugin.overlay.onOpen  = onOpen  != null ? onOpen  : plugin.overlay.onOpen;
             plugin.overlay.onClose = onClose != null ? onClose : plugin.overlay.onClose;
+            
+            if(plugin.config.autoResize === true) {
+                plugin.observe();
+            }
+        };
+
+        plugin.clearIntervals = function() {
+            intervals.forEach(function(interval) {
+                clearInterval(interval);
+            });
+        };
+
+        plugin.observe = function() {
+            MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+            if(!MutationObserver) return;
+
+            var observer = new MutationObserver(function(mutations, observer) {
+                $(colorbox).colorbox.resize();
+            });
+
+            observer.observe(self[0], {
+                subtree:   true,
+                childList: true
+            });
         };
 
         plugin.overlay = {
@@ -36,7 +65,7 @@
                 var deferred = $.Deferred();
 
                 setTimeout(function() {
-                    $.colorbox({
+                    colorbox = $.colorbox({
                         inline:       true,
                         href:         self,
                         initialWidth: 320,
@@ -46,8 +75,8 @@
                         overlayClose: plugin.config.closable,
                         escKey:		  plugin.config.closable,
                         fixed:        plugin.config.fixed,
-                        width:        plugin.config.width,
-                        height:       plugin.config.height,
+                        width:        plugin.config.fitScreen === true ? window.innerWidth : plugin.config.width,
+                        height:       plugin.config.fitScreen === true ? window.innerHeight : plugin.config.height,
                         maxWidth:     plugin.config.maxWidth,
                         maxHeight:    plugin.config.maxHeight,
                         top:          plugin.config.top,
@@ -61,6 +90,7 @@
                             return self.show();
                         },
                         onClosed: function () {
+                            plugin.clearIntervals();
                             plugin.overlay.onClose();
                             return self.hide();
                         }
@@ -74,13 +104,13 @@
                     }, plugin.config.startingDelay + plugin.config.minDisplayTime);
 
                     if(plugin.config.maxDisplayTime > 0) {
-                        setInterval(function() {
+                        intervals.push(setInterval(function() {
                             if(start +
                                 plugin.config.startingDelay +
                                 plugin.config.maxDisplayTime < Date.now()) {
                                     return plugin.overlay.close();
                             }
-                        }, 50);
+                        }, 50));
                     }
                 }, plugin.config.startingDelay);
 
@@ -97,6 +127,10 @@
                 });
 
                 return deferred.promise();
+            },
+
+            resize: function() {
+                $(colorbox).colorbox.resize();
             },
 
             onOpen:  function() {},
