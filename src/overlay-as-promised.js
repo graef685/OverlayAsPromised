@@ -22,7 +22,8 @@
             className:      false,
             transition:     'elastic',
             speed:          350,
-            fixed:          false
+            fixed:          false,
+            fitScreen:      false
         };
 
         plugin.init = function(config, onOpen, onClose) {
@@ -53,8 +54,8 @@
                         overlayClose: plugin.config.closable,
                         escKey:		  plugin.config.closable,
                         fixed:        plugin.config.fixed,
-                        width:        plugin.config.width,
-                        height:       plugin.config.height,
+                        width:        plugin.config.fitScreen === true ? window.innerWidth : plugin.config.width,
+                        height:       plugin.config.fitScreen === true ? window.innerHeight : plugin.config.height,
                         maxWidth:     plugin.config.maxWidth,
                         maxHeight:    plugin.config.maxHeight,
                         top:          plugin.config.top,
