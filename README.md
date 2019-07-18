@@ -39,14 +39,18 @@ config: {
   className:       string                  -> default: false          -> gives overlay a custom class
   transition:      'elastic'|'fade'|'none' -> default: 'elastic'      -> opening transition type
   speed:           int                     -> default: 350            -> transition speed
+  fixed:           bool                    -> default: false          -> fixed position, no scrolling of background
+  fitScreen:       bool                    -> default: false          -> whole screen overlay
+  autoResize:      bool                    -> default: false          -> trigger resize on dom changes
 }
 
 onOpen:            function                -> default: empty function -> will be called on open
 onClose:           function                -> default: empty function -> will be called on close
 ```
 ```
-overlay.open()  -> Promise with resolved return value from onOpen
-overlay.close() -> Promise with resolved return value from onClose
+overlay.open()   -> Promise with resolved return value from onOpen
+overlay.close()  -> Promise with resolved return value from onClose
+overlay.resize() -> null
 ```
 
 ### Usage
@@ -76,8 +80,8 @@ To customize the close-Button simply overwrite the styles of the element with id
 #cboxClose {
   display: inline-block;
   position: absolute;
-  top: -30px;
-  right: -30px;
+  top: 0px;
+  left: 0px;
   color: #000;
   border: none;
   background-color: #fff;
