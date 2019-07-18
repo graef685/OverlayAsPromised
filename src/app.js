@@ -12,4 +12,12 @@ $(document).ready(function() {
             console.log(value);
         });
     });
+
+    $('input#resize-overlay').click(function() {
+        overlay.resize();
+    });
+
+     $('input#add-content').click(function() {
+         $('.test').append('<div style="height: 100px; background-color: #ff0000"></div>');
+     });
 });

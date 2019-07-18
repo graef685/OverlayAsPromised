@@ -1,5 +1,6 @@
 (function($) {
     $.fn.overlayAsPromised = function(config, onOpen, onClose) {
+        var colorbox;
         var self      = this;
         var intervals = [];
         var plugin    = {
@@ -23,18 +24,38 @@
             transition:     'elastic',
             speed:          350,
             fixed:          false,
-            fitScreen:      false
+            fitScreen:      false,
+            autoResize:     false
         };
 
         plugin.init = function(config, onOpen, onClose) {
             plugin.config          = $.extend(true, {}, defaults, config);
             plugin.overlay.onOpen  = onOpen  != null ? onOpen  : plugin.overlay.onOpen;
             plugin.overlay.onClose = onClose != null ? onClose : plugin.overlay.onClose;
+            
+            if(plugin.config.autoResize === true) {
+                plugin.observe();
+            }
         };
 
         plugin.clearIntervals = function() {
             intervals.forEach(function(interval) {
                 clearInterval(interval);
+            });
+        };
+
+        plugin.observe = function() {
+            MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+            if(!MutationObserver) return;
+
+            var observer = new MutationObserver(function(mutations, observer) {
+                $(colorbox).colorbox.resize();
+            });
+
+            observer.observe(self[0], {
+                subtree:   true,
+                childList: true
             });
         };
 
@@ -44,7 +65,7 @@
                 var deferred = $.Deferred();
 
                 setTimeout(function() {
-                    $.colorbox({
+                    colorbox = $.colorbox({
                         inline:       true,
                         href:         self,
                         initialWidth: 320,
@@ -106,6 +127,10 @@
                 });
 
                 return deferred.promise();
+            },
+
+            resize: function() {
+                $(colorbox).colorbox.resize();
             },
 
             onOpen:  function() {},
