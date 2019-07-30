@@ -1,7 +1,7 @@
 {
   "name": "overlay-as-promised",
   "title": "jQuery OverlayAsPromised",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "jQuery plugin: Full-configurable overlay returning promises on listening events",
   "keywords": [
     "overlay",
