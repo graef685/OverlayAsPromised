@@ -26,8 +26,8 @@ var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 config: {
   closable:        bool                    -> default: true           -> overlay will be closable by button or extern layer click
   closeButton:     bool                    -> default: false          -> shows close button at overlay's bottom
-  closeLabel:      string                  -> default 'Close'         -> label for close button
-  closeClass:      string                  -> default ''              -> css class for close button
+  closeLabel:      string                  -> default: 'Close'         -> label for close button
+  closeClass:      string                  -> default: ''              -> css class for close button
   startingDelay:   int                     -> default: 0              -> overlay will be opened after this amount of miliseconds
   minDisplayTime:  int                     -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
   maxDisplayTime:  int                     -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds
@@ -79,7 +79,7 @@ overlay.open().then(function(value) {
 ### Customize
 
 For the moment customizing means to override the ```jQuery.colorbox``` styles.  
-To customize the close-Button simply overwrite the styles of the element with id ``` cboxClose ``` e.g. in your stylesheet:
+To customize the built-in top close-Button simply overwrite the styles of the element with id ``` cboxClose ``` e.g. in your stylesheet:
 
 ```c2hs
 #cboxClose {
