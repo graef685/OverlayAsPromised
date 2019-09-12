@@ -9,6 +9,9 @@
         
         var defaults = {
             closable:       true,
+            closeButton:    false,
+            closeLabel:     'Close',
+            closeClass:     '',
             startingDelay:  0,
             minDisplayTime: 0,
             maxDisplayTime: 0,
@@ -35,6 +38,21 @@
             
             if(plugin.config.autoResize === true) {
                 plugin.observe();
+            }
+
+            if(plugin.config.closeButton === true && self.find('#overlay_close_container').length < 1) {
+                self.append($('<div id="overlay_close_container" class="overlay-close-container"><button class="overlay-close-button ' + plugin.config.closeClass + '">' + plugin.config.closeLabel + '</button></div>'));
+
+                if(plugin.config.fitScreen === true) {
+                    $('.overlay-close-container').addClass('overlay-bottom-fixed');
+
+                    self.css('width', '100%');
+                    self.css('height', '100%');
+                }
+
+                $('#colorbox').on('click', '.overlay-close-button', function() {
+                    plugin.overlay.close();
+                });
             }
         };
 
