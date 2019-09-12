@@ -1,6 +1,9 @@
 $(document).ready(function() {
     var overlay = $('.test').overlayAsPromised({
-        closable: true
+        fixed: true,
+        closeButton: true,
+        closeClass: 'btn',
+        closeLabel: 'close'
     }, function() {
         return "it's working";
     }, function() {
