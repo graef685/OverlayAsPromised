@@ -21,3 +21,10 @@
     content: "\e014";
     font-size: 17px;
 }
+
+.overlay-bottom-fixed {
+    position: fixed;
+    bottom: 0px;
+    width: 98%;
+    padding: 10px;
+}
