@@ -3,7 +3,10 @@
 ![](https://img.shields.io/npm/v/overlay-as-promised.svg)
 ![](https://img.shields.io/npm/l/overlay-as-promised.svg)
 ![](https://img.shields.io/github/size/graef685/OverlayAsPromised/jquery.overlay-as-promised.min.js)
+![](https://img.shields.io/github/commits-since/graef685/OverlayAsPromised/0.1.0/master)
 ![](https://img.shields.io/npm/dt/overlay-as-promised.svg)
+
+	
 
 ### Release with Dependencies !!!
 If you include the ```jquery.overlay-as-promised.min.js``` only, be sure jQuery and jQuery.colorbox are part of your Project.  
