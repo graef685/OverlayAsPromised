@@ -2,6 +2,7 @@
 
 ![](https://img.shields.io/npm/v/overlay-as-promised.svg)
 ![](https://img.shields.io/npm/l/overlay-as-promised.svg)
+![](https://img.shields.io/github/size/graef685/OverlayAsPromised/jquery.overlay-as-promised.min.js)
 ![](https://img.shields.io/npm/dt/overlay-as-promised.svg)
 
 ### Release with Dependencies !!!
