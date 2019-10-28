@@ -63,7 +63,7 @@ overlay.close()  -> Promise with resolved return value from onClose
 overlay.resize() -> null
 ```
 
-*Note: Auto resizing is not working on Internet Explorer 9 and below*
+*Note: Auto resizing is not working for Internet Explorer 9 and below*
 
 ### Usage
 
