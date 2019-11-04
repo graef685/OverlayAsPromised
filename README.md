@@ -29,12 +29,12 @@ You will get them here:
 ```
 var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 ```
-```c2hs 
+```js 
 config: {
   closable:        bool                    -> default: true           -> overlay will be closable by button or extern layer click
   closeButton:     bool                    -> default: false          -> shows close button at overlay's bottom
-  closeLabel:      string                  -> default: 'Close'         -> label for close button
-  closeClass:      string                  -> default: ''              -> css class for close button
+  closeLabel:      string                  -> default: 'Close'        -> label for close button
+  closeClass:      string                  -> default: ''             -> css class for close button
   startingDelay:   int                     -> default: 0              -> overlay will be opened after this amount of miliseconds
   minDisplayTime:  int                     -> default: 0              -> overlay will be at least visible for this amount of miliseconds,
   maxDisplayTime:  int                     -> default: 0              -> overlay will be maximal be visible for this amount of miliseconds
