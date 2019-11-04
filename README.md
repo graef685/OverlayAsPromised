@@ -29,7 +29,7 @@ You will get them here:
 ```
 var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 ```
-``` 
+```c2hs 
 config: {
   closable:        bool                    -> default: true           -> overlay will be closable by button or extern layer click
   closeButton:     bool                    -> default: false          -> shows close button at overlay's bottom
@@ -57,7 +57,7 @@ config: {
 onOpen:            function                -> default: empty function -> will be called on open
 onClose:           function                -> default: empty function -> will be called on close
 ```
-```
+```js
 overlay.open()   -> Promise with resolved return value from onOpen
 overlay.close()  -> Promise with resolved return value from onClose
 overlay.resize() -> null
@@ -69,7 +69,7 @@ overlay.resize() -> null
 
 * Include ```jquery.overlay-as-promised.min.js``` into your Project
 
-``` 
+```js 
 var overlay = $('.test').overlayAsPromised({
     closable: true,
 }, function() {
