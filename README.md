@@ -26,7 +26,7 @@ You will get them here:
 * Open your browser at ```localhost:1234 ```
 
 ### API
-```
+```js
 var overlay = $(selector).overlayAsPromised(config, onOpen, onClose);
 ```
 ```c2hs 
