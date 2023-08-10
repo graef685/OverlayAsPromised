@@ -119,7 +119,7 @@
                             deferred.resolve(result);
                         });
 
-                    }, plugin.config.startingDelay + plugin.config.minDisplayTime);
+                    }, plugin.config.minDisplayTime);
 
                     if(plugin.config.maxDisplayTime > 0) {
                         intervals.push(setInterval(function() {
