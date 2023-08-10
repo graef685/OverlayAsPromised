@@ -58,9 +58,10 @@ onOpen:            function                -> default: empty function -> will be
 onClose:           function                -> default: empty function -> will be called on close
 ```
 ```js
-overlay.open()   -> Promise with resolved return value from onOpen
-overlay.close()  -> Promise with resolved return value from onClose
-overlay.resize() -> null
+overlay.open()        -> Promise with resolved return value from onOpen
+overlay.close()       -> Promise with resolved return value from onClose
+overlay.resize()      -> null
+overlay.preventOpen() -> null
 ```
 
 *Note: Auto resizing is not working for Internet Explorer 9 and below*
@@ -81,6 +82,18 @@ var overlay = $('.test').overlayAsPromised({
 overlay.open().then(function(value) {
     console.log(value);
 });
+```
+
+If you declare a startingDelay and want to prevent opening the overlay anyway before the timeout is reached after you called open():
+
+```js 
+var overlay = $('.test').overlayAsPromised({
+    startingDelay: 3000
+});
+
+overlay.open();
+// do something
+overlay.preventOpen();
 ```
 
 ### Customize
