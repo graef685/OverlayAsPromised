@@ -116,9 +116,12 @@
                         onClosed: function () {
                             plugin.clearIntervals();
                             plugin.overlay.onClose();
+                            preventOpen = false;
                             return self.hide();
                         }
                     });
+
+                    preventOpen = false;
 
                     setTimeout(function() {
                         $.when(plugin.overlay.onOpen()).then(function(result) {
@@ -145,6 +148,8 @@
                 var deferred = $.Deferred();
 
                 $.colorbox.close();
+
+                preventOpen = false;
 
                 $.when(plugin.overlay.onClose()).then(function(result) {
                     deferred.resolve(result);
