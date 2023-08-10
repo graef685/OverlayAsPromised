@@ -1,7 +1,7 @@
 {
   "name": "overlay-as-promised",
   "title": "jQuery OverlayAsPromised",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "jQuery plugin: Full-configurable overlay returning promises on listening events",
   "keywords": [
     "browser",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/graef685/OverlayAsPromised.git"
   },
-  "author": "Patrick Gr‰f",
+  "author": "Patrick Gr√§f",
   "license": "GPL",
   "docs": "https://github.com/graef685/OverlayAsPromised",
   "bugs": {
