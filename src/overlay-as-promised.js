@@ -6,6 +6,8 @@
         var plugin    = {
             config: {}
         };
+
+        var preventOpen = false;
         
         var defaults = {
             closable:       true,
@@ -83,6 +85,10 @@
                 var deferred = $.Deferred();
 
                 setTimeout(function() {
+                    if(preventOpen) {
+                        return;
+                    }
+
                     colorbox = $.colorbox({
                         inline:       true,
                         href:         self,
@@ -149,6 +155,10 @@
 
             resize: function() {
                 $(colorbox).colorbox.resize();
+            },
+
+            preventOpen: function() {
+                preventOpen = true;
             },
 
             onOpen:  function() {},
